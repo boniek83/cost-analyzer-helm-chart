@@ -39,6 +39,9 @@ spec:
 {{- end }}
 {{- end }}
     spec:
+{{- if .Values.kubecostMetrics.priorityClassName }}
+      priorityClassName: "{{ .Values.kubecostMetrics.priorityClassName }}"
+{{- end }}
       {{- if .Values.kubecostFrontend.tls }}
       {{- if .Values.kubecostFrontend.tls.enabled }}
       securityContext:
